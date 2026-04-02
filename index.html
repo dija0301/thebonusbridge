@@ -67,6 +67,28 @@ nav{
 .btn-primary-sm{font-size:13.5px;font-weight:700;color:var(--white);background:var(--indigo);border:none;padding:9px 22px;border-radius:9px;cursor:pointer;font-family:inherit;transition:all .15s;}
 .btn-primary-sm:hover{background:var(--indigo-dark);box-shadow:0 4px 14px #4f46e540;}
 
+/* ── LOGIN MODAL ── */
+.login-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;animation:overlayIn .2s ease;}
+.login-overlay.hidden{display:none;}
+.login-modal{background:var(--white);border-radius:20px;padding:40px 36px 36px;width:100%;max-width:420px;box-shadow:0 24px 64px rgba(0,0,0,.18);animation:modalIn .25s ease;position:relative;}
+.login-modal-title{font-size:22px;font-weight:800;color:var(--g900);margin-bottom:6px;letter-spacing:-.02em;}
+.login-modal-sub{font-size:14px;color:var(--g500);margin-bottom:28px;line-height:1.5;}
+.login-choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.login-choice{border:1.5px solid var(--g200);border-radius:14px;padding:20px 16px;cursor:pointer;background:var(--white);font-family:inherit;text-align:left;transition:all .18s;text-decoration:none;display:block;}
+.login-choice:hover{border-color:var(--indigo);background:#f5f3ff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(79,70,229,.1);}
+.login-choice.disabled{opacity:.45;cursor:default;pointer-events:none;}
+.login-choice-icon{width:36px;height:36px;border-radius:10px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;}
+.login-choice-icon-issuer{background:#eef2ff;}
+.login-choice-icon-recipient{background:#ecfdf5;}
+.login-choice-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+.login-choice-label-issuer{color:var(--indigo);}
+.login-choice-label-recipient{color:var(--green);}
+.login-choice-title{font-size:15px;font-weight:700;color:var(--g900);margin-bottom:4px;}
+.login-choice-desc{font-size:12px;color:var(--g500);line-height:1.45;}
+.login-modal-x{position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;color:var(--g400);padding:6px;border-radius:8px;transition:background .15s;line-height:1;}
+.login-modal-x:hover{background:var(--cream);color:var(--g700);}
+
+
 /* ──────────────────────────────────────
    HERO
 ────────────────────────────────────── */
@@ -518,7 +540,8 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
   .nav-links{display:none;}
   .hamburger{display:flex;}
   .scroll-spy{display:none;}
-  .btn-ghost-sm{display:none;}
+  .btn-primary-sm{display:none;}
+  .btn-ghost-sm{font-size:12px;padding:7px 12px;}
 }
 @media(max-width:600px){
   .pain-grid,.bonus-grid,.services-grid,.pkg-grid,.features-grid,.trust-grid,.how-grid{grid-template-columns:1fr;}
@@ -708,6 +731,33 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
 </head>
 <body>
 
+<!-- ── LOGIN MODAL ── -->
+<div class="login-overlay hidden" id="loginOverlay" onclick="if(event.target===this)closeLoginModal()">
+  <div class="login-modal">
+    <button class="login-modal-x" onclick="closeLoginModal()">✕</button>
+    <div class="login-modal-title">Welcome back.</div>
+    <div class="login-modal-sub">Choose how you're logging in to BonusBridge.</div>
+    <div class="login-choices">
+      <a href="https://bonusbridge-app.vercel.app" target="_blank" class="login-choice" onclick="closeLoginModal()">
+        <div class="login-choice-icon login-choice-icon-issuer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <div class="login-choice-label login-choice-label-issuer">Issuer</div>
+        <div class="login-choice-title">I manage bonuses</div>
+        <div class="login-choice-desc">HR, Finance, or Admin access to the issuer dashboard</div>
+      </a>
+      <div class="login-choice disabled">
+        <div class="login-choice-icon login-choice-icon-recipient">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="login-choice-label login-choice-label-recipient">Recipient</div>
+        <div class="login-choice-title">I received a bonus</div>
+        <div class="login-choice-desc">Coming soon — view your agreement &amp; schedule</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── MODAL ── -->
 <div class="modal-overlay hidden" id="overlay" onclick="handleOvClick(event)">
   <div class="modal">
@@ -792,8 +842,8 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
       <a href="#team">Team</a>
     </div>
     <div class="nav-right">
+      <button class="btn-ghost-sm" onclick="openLoginModal()">Log In</button>
       <button class="btn-primary-sm" onclick="openModal()">Get Started</button>
-      <!-- Hamburger — mobile only -->
       <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -837,6 +887,7 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
     </nav>
     <div class="mobile-menu-ctas">
       <button class="mobile-cta-primary" onclick="toggleMenu();openModal()">Get Started →</button>
+      <button onclick="toggleMenu();openLoginModal()" style="display:block;width:100%;text-align:center;padding:13px 20px;border-radius:11px;font-size:15px;font-weight:600;color:var(--indigo);background:#eef2ff;border:none;cursor:pointer;font-family:inherit;margin-top:10px;">Log In</button>
     </div>
   </div>
 </div>
@@ -1719,7 +1770,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(el) {
 });
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') { closeModal(); if (menuOpen) toggleMenu(); }
+  if (e.key === 'Escape') { closeModal(); closeLoginModal(); if (menuOpen) toggleMenu(); }
 });
 
 /* ── PRICING CALCULATOR ── */
@@ -1800,6 +1851,16 @@ function cpCalc() {
 }
 
 cpCalc();
+
+/* ── LOGIN MODAL ── */
+function openLoginModal() {
+  document.getElementById('loginOverlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeLoginModal() {
+  document.getElementById('loginOverlay').classList.add('hidden');
+  document.body.style.overflow = '';
+}
 </script>
 </body>
 </html>
