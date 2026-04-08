@@ -746,13 +746,14 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
         <div class="login-choice-title">I manage bonuses</div>
         <div class="login-choice-desc">HR, Finance, or Admin access to the issuer dashboard</div>
       </a>
-      <div class="login-choice disabled">
-        <div class="login-choice-icon login-choice-icon-recipient">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div class="login-choice-label login-choice-label-recipient">Recipient</div>
-        <div class="login-choice-title">I received a bonus</div>
-        <div class="login-choice-desc">Coming soon — view your agreement &amp; schedule</div>
+          <a href="https://bonusbridge-app.vercel.app/login?role=recipient" target="_blank" class="login-choice" onclick="closeLoginModal()">
+  <div class="login-choice-icon login-choice-icon-recipient">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  </div>
+  <div class="login-choice-label login-choice-label-recipient">Recipient</div>
+  <div class="login-choice-title">I received a bonus</div>
+  <div class="login-choice-desc">View your agreement, track forgiveness progress, and manage your contact info</div>
+</a>
       </div>
     </div>
   </div>
