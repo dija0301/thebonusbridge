@@ -593,6 +593,7 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
 .kickstart-eyebrow::before { content:'★'; font-size:12px; }
 .kickstart-title { font-family:'Instrument Serif',serif; font-size:clamp(32px,4vw,48px); color:var(--white); margin-bottom:16px; line-height:1.05; }
 .kickstart-body { font-size:15px; color:rgba(255,255,255,.6); line-height:1.78; margin-bottom:28px; }
+.kickstart-sub  { font-size:15px; color:rgba(255,255,255,.75); line-height:1.78; margin-bottom:28px; }
 .kickstart-eg-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#818cf8; margin-bottom:12px; }
 .kickstart-eg { font-size:13px; color:rgba(255,255,255,.45); line-height:1.65; padding:12px 16px; background:rgba(255,255,255,.05); border-radius:10px; border-left:3px solid #4f46e5; margin-bottom:10px; font-style:italic; }
 .kickstart-right { display:flex; flex-direction:column; gap:0; }
@@ -769,9 +770,8 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
       <div class="modal-sub">Tell us about your organization and what you're looking to solve. We'll be in touch within one business day.</div>
       <div class="pkg-sel-label">I'm interested in</div>
       <div class="pkg-sel-grid" id="pkgSel">
-        <button class="pkg-sel-opt" onclick="selPkg(this,'BonusBridge Manage')"><div class="pso-tier">Manage</div><div class="pso-name">The Platform</div></button>
-        <button class="pkg-sel-opt" onclick="selPkg(this,'BonusBridge Notify')"><div class="pso-tier">Notify</div><div class="pso-name">Platform + Communications</div></button>
-        <button class="pkg-sel-opt" onclick="selPkg(this,'BonusBridge Execute')"><div class="pso-tier">Execute</div><div class="pso-name">Platform + Comms + Documents</div></button>
+        <button class="pkg-sel-opt" onclick="selPkg(this,'BonusBridge')"><div class="pso-tier">Standard</div><div class="pso-name">BonusBridge</div></button>
+        <button class="pkg-sel-opt" onclick="selPkg(this,'BonusBridge + DocuSign')"><div class="pso-tier">+ DocuSign</div><div class="pso-name">BonusBridge + DocuSign</div></button>
         <button class="pkg-sel-opt" onclick="selPkg(this,'Portfolio Kickstart')"><div class="pso-tier">Service</div><div class="pso-name">Portfolio Kickstart</div></button>
         <button class="pkg-sel-opt pkg-sel-wide" onclick="selPkg(this,'Not sure yet')"><div class="pso-tier" style="color:var(--g400)">Not sure yet</div><div class="pso-name" style="color:var(--g500)">Help me find the right fit</div></button>
       </div>
@@ -1107,8 +1107,8 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
       </div>
       <div class="feat-card">
         <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <h4>Collections Management</h4>
-        <p>When a recipient leaves early, BonusBridge generates demand letters, tracks outstanding balances, and manages the collections communication — giving your team a defensible, documented process without involving outside counsel for routine cases.</p>
+        <h4>Departure Response</h4>
+        <p>When a recipient leaves early, BonusBridge surfaces their outstanding balance, personal contact information, and complete acknowledgment history — everything your team needs to initiate a structured, documented response from a position of clear evidence.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
@@ -1132,57 +1132,53 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
 <!-- ── PACKAGES ── -->
 <section id="packages" style="background:var(--white);padding:100px 40px;">
   <div class="section-inner">
-    <div class="s-eyebrow fade-up">Packages</div>
-    <h2 class="s-title fade-up d1">Three products.<br><em>Pick the one that fits.</em></h2>
-    <p class="s-sub fade-up d2">Each tier is complete on its own. Upgrade when you're ready — or start at the top.</p>
+    <div class="s-eyebrow fade-up">Products</div>
+    <h2 class="s-title fade-up d1">Two products.<br><em>One decision.</em></h2>
+    <p class="s-sub fade-up d2">Every client gets the full platform — no feature restrictions, no artificial limits. The only choice is whether you want electronic document execution via DocuSign.</p>
 
-    <div class="pkg-grid-3 fade-up d3">
+    <div class="pkg-grid-3 fade-up d3" style="grid-template-columns:1fr 1fr;max-width:760px;">
 
       <div class="pkg3">
-        <div class="pkg3-tier">Manage</div>
-        <div class="pkg3-name">Platform access, your team drives.</div>
+        <div class="pkg3-tier">BonusBridge</div>
+        <div class="pkg3-name">The full platform. Your team drives.</div>
         <div class="pkg3-div"></div>
         <ul class="pkg3-list">
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Agreement tracking &amp; amortization</li>
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Issuer &amp; recipient dashboards</li>
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Data exports for payroll &amp; reporting</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>All four bonus type templates</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Amortization schedule generation</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>State law awareness engine</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Recipient portal with full transparency</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Acknowledgment tracking &amp; audit trail</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Departure response documentation</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Bulk CSV import &amp; compliance exports</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Configurable notification engine</li>
         </ul>
-        <button class="pkg3-btn pb-outline" onclick="openModal('BonusBridge Manage')">Get Started</button>
+        <button class="pkg3-btn pb-outline" onclick="openModal('BonusBridge')">Get Started</button>
       </div>
 
       <div class="pkg3 pkg3-feat">
-        <div class="pkg3-badge">Most Popular</div>
-        <div class="pkg3-tier">Notify</div>
-        <div class="pkg3-name">Manage + departure response communications.</div>
+        <div class="pkg3-badge">Includes DocuSign</div>
+        <div class="pkg3-tier">BonusBridge + DocuSign</div>
+        <div class="pkg3-name">Full platform + electronic execution.</div>
         <div class="pkg3-div"></div>
         <ul class="pkg3-list">
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Manage</li>
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Issuer-configured eligibility triggers</li>
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Automated notices &amp; communication log</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in BonusBridge</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Your documents mapped to BonusBridge fields</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Pre-filled promissory notes sent for e-signature</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Signed documents stored &amp; linked to records</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Full execution audit trail</li>
+          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Document setup service included</li>
         </ul>
-        <button class="pkg3-btn pb-white" onclick="openModal('BonusBridge Notify')">Get Started</button>
-      </div>
-
-      <div class="pkg3">
-        <div class="pkg3-tier">Execute</div>
-        <div class="pkg3-name">Notify + document generation &amp; retention.</div>
-        <div class="pkg3-div"></div>
-        <ul class="pkg3-list">
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Notify</li>
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Agreement &amp; promissory note generation</li>
-          <li><svg class="pkg-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>DocuSign e-signature &amp; document vault</li>
-        </ul>
-        <button class="pkg3-btn pb-solid" onclick="openModal('BonusBridge Execute')">Get Started</button>
+        <button class="pkg3-btn pb-white" onclick="openModal('BonusBridge + DocuSign')">Get Started</button>
       </div>
 
     </div>
 
     <div class="alacarte-bar fade-up d4">
       <div class="alacarte-left">
-        <div class="alacarte-label">À la carte services available</div>
-        <div class="alacarte-sub">Not sure which tier fits? Every engagement can be tailored. Pricing is based on scope.</div>
+        <div class="alacarte-label">Portfolio Kickstart — featured onboarding service</div>
+        <div class="alacarte-sub">Have existing agreements that have never been formally documented? BonusBridge works with your team to audit, reconstruct, and migrate your full portfolio. Most organizations find this pays for itself before the first invoice.</div>
       </div>
-      <button class="alacarte-btn" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See Services →</button>
+      <button class="alacarte-btn" onclick="openModal('Portfolio Kickstart')">Ask About This →</button>
     </div>
 
   </div>
@@ -1192,35 +1188,74 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
 <section id="pricing" style="background:var(--cream);padding:100px 40px;">
   <div class="section-inner">
     <div class="s-eyebrow fade-up">Pricing</div>
-    <h2 class="s-title fade-up d1">Per agreement. Per month.<br><em>Two rates. That's it.</em></h2>
-    <p class="s-sub fade-up d2">Promissory notes carry more complexity — amortization, interest, imputed income. All other bonus types are straightforward. Pricing reflects that distinction.</p>
+    <h2 class="s-title fade-up d1">Per agreement. Per month.<br><em>Simple, transparent pricing.</em></h2>
+    <p class="s-sub fade-up d2">Every agreement type has its own rate — promissory notes carry more complexity, departed agreements are billed at a reduced rate while they sit in departure response. No hidden fees, no volume tiers.</p>
 
-    <div style="display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:start;" class="fade-up d3" id="calcWrap">
+    <!-- Pricing table -->
+    <div class="fade-up d3" style="background:var(--white);border:1px solid var(--g200);border-radius:20px;overflow:hidden;max-width:680px;margin-bottom:40px;">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--navy);">
+            <th style="text-align:left;padding:14px 20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);">Agreement Type</th>
+            <th style="text-align:center;padding:14px 20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a5b4fc;">BonusBridge<span style="display:block;font-size:10px;font-weight:400;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.35);margin-top:2px;">per agreement / per month</span></th>
+            <th style="text-align:center;padding:14px 20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6ee7b7;">+ DocuSign<span style="display:block;font-size:10px;font-weight:400;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.35);margin-top:2px;">per agreement / per month</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--g200);">
+            <td style="padding:16px 20px;">
+              <div style="font-size:14px;font-weight:700;color:var(--g900);">Signing / Starting Bonus</div>
+              <div style="font-size:12px;color:var(--g400);margin-top:2px;">Forgivable promissory note — amortization, interest, imputed income</div>
+            </td>
+            <td style="text-align:center;padding:16px 20px;font-size:20px;font-weight:800;color:var(--indigo);">$12<span style="font-size:12px;font-weight:500;color:var(--g400);">/mo</span></td>
+            <td style="text-align:center;padding:16px 20px;font-size:20px;font-weight:800;color:var(--green);">$17<span style="font-size:12px;font-weight:500;color:var(--g400);">/mo</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--g200);">
+            <td style="padding:16px 20px;">
+              <div style="font-size:14px;font-weight:700;color:var(--g900);">Retention / Performance Bonus</div>
+              <div style="font-size:12px;color:var(--g400);margin-top:2px;">Milestone or installment-based agreements</div>
+            </td>
+            <td style="text-align:center;padding:16px 20px;font-size:20px;font-weight:800;color:var(--indigo);">$6<span style="font-size:12px;font-weight:500;color:var(--g400);">/mo</span></td>
+            <td style="text-align:center;padding:16px 20px;font-size:20px;font-weight:800;color:var(--green);">$11<span style="font-size:12px;font-weight:500;color:var(--g400);">/mo</span></td>
+          </tr>
+          <tr>
+            <td style="padding:16px 20px;">
+              <div style="font-size:14px;font-weight:700;color:var(--g900);">Departed Agreement</div>
+              <div style="font-size:12px;color:var(--g400);margin-top:2px;">Terminated — billed monthly while in departure response status</div>
+            </td>
+            <td style="text-align:center;padding:16px 20px;font-size:20px;font-weight:800;color:var(--indigo);">$3<span style="font-size:12px;font-weight:500;color:var(--g400);">/mo</span></td>
+            <td style="text-align:center;padding:16px 20px;font-size:20px;font-weight:800;color:var(--green);">$8<span style="font-size:12px;font-weight:500;color:var(--g400);">/mo</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr style="background:var(--cream);">
+            <td colspan="3" style="padding:12px 20px;font-size:12px;color:var(--g400);">$150/month minimum · $500 setup fee · DocuSign + $1,000/template document setup (one-time)</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:start;" class="fade-up d4" id="calcWrap">
 
       <!-- LEFT -->
       <div style="display:flex;flex-direction:column;gap:16px;">
 
-        <!-- Package -->
+        <!-- Package toggle -->
         <div style="background:var(--white);border:1px solid var(--g200);border-radius:16px;padding:28px;">
           <div style="font-size:13px;font-weight:700;color:var(--g900);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
             <span style="width:24px;height:24px;border-radius:50%;background:var(--indigo);color:white;font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
-            Select your package
+            Select your product
           </div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-            <div class="bb-pkg selected" data-pkg="manage" data-note="18" data-other="9" onclick="bbSelectPkg(this)" style="border:1.5px solid var(--indigo);background:#eef2ff;border-radius:12px;padding:14px;cursor:pointer;transition:all .15s;text-align:center;">
-              <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--indigo);margin-bottom:6px;">Manage</div>
-              <div style="font-size:13px;font-weight:600;color:var(--indigo-dark);">$18 · $9<span style="font-size:10px;font-weight:400;color:var(--g400);display:block;margin-top:2px;">/agreement/mo</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div class="bb-pkg selected" data-pkg="standard" data-note="12" data-other="6" data-departed="3" onclick="bbSelectPkg(this)" style="border:1.5px solid var(--indigo);background:#eef2ff;border-radius:12px;padding:16px;cursor:pointer;transition:all .15s;text-align:center;">
+              <div style="font-size:13px;font-weight:800;color:var(--indigo);margin-bottom:4px;">BonusBridge</div>
+              <div style="font-size:11px;font-weight:500;color:var(--indigo-dark);">Full platform</div>
             </div>
-            <div class="bb-pkg" data-pkg="notify" data-note="30" data-other="16" onclick="bbSelectPkg(this)" style="border:1.5px solid var(--g200);background:var(--cream);border-radius:12px;padding:14px;cursor:pointer;transition:all .15s;text-align:center;">
-              <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--g400);margin-bottom:6px;">Notify</div>
-              <div style="font-size:13px;font-weight:600;color:var(--g700);">$30 · $16<span style="font-size:10px;font-weight:400;color:var(--g400);display:block;margin-top:2px;">/agreement/mo</span></div>
-            </div>
-            <div class="bb-pkg" data-pkg="execute" data-note="45" data-other="24" onclick="bbSelectPkg(this)" style="border:1.5px solid var(--g200);background:var(--cream);border-radius:12px;padding:14px;cursor:pointer;transition:all .15s;text-align:center;">
-              <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--g400);margin-bottom:6px;">Execute</div>
-              <div style="font-size:13px;font-weight:600;color:var(--g700);">$45 · $24<span style="font-size:10px;font-weight:400;color:var(--g400);display:block;margin-top:2px;">/agreement/mo</span></div>
+            <div class="bb-pkg" data-pkg="docusign" data-note="17" data-other="11" data-departed="8" onclick="bbSelectPkg(this)" style="border:1.5px solid var(--g200);background:var(--cream);border-radius:12px;padding:16px;cursor:pointer;transition:all .15s;text-align:center;">
+              <div style="font-size:13px;font-weight:800;color:var(--g700);margin-bottom:4px;">+ DocuSign</div>
+              <div style="font-size:11px;font-weight:500;color:var(--g500);">Full platform + e-sign</div>
             </div>
           </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--g400);font-style:italic;">Left rate = promissory notes &nbsp;·&nbsp; Right rate = starting &amp; retention bonuses</div>
         </div>
 
         <!-- Counts -->
@@ -1242,7 +1277,7 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
               </div>
               <div style="display:flex;align-items:center;">
                 <button onclick="bbAdj('bbNoteQty',-1)" style="width:36px;height:40px;border-radius:8px 0 0 8px;border:1.5px solid var(--g200);border-right:none;background:var(--cream);color:var(--g700);font-size:18px;cursor:pointer;font-family:inherit;transition:all .15s;" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--g200)';this.style.color='var(--g700)'">−</button>
-                <input id="bbNoteQty" type="number" min="0" value="50" oninput="bbCalc()" style="width:52px;height:40px;border:1.5px solid var(--g200);border-left:none;border-right:none;text-align:center;font-size:16px;font-weight:800;color:var(--indigo);font-family:inherit;outline:none;background:var(--white);-moz-appearance:textfield;">
+                <input id="bbNoteQty" type="number" min="0" value="10" oninput="bbCalc()" style="width:52px;height:40px;border:1.5px solid var(--g200);border-left:none;border-right:none;text-align:center;font-size:16px;font-weight:800;color:var(--indigo);font-family:inherit;outline:none;background:var(--white);-moz-appearance:textfield;">
                 <button onclick="bbAdj('bbNoteQty',1)" style="width:36px;height:40px;border-radius:0 8px 8px 0;border:1.5px solid var(--g200);border-left:none;background:var(--cream);color:var(--g700);font-size:18px;cursor:pointer;font-family:inherit;transition:all .15s;" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--g200)';this.style.color='var(--g700)'">+</button>
               </div>
             </div>
@@ -1260,13 +1295,27 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
               </div>
               <div style="display:flex;align-items:center;">
                 <button onclick="bbAdj('bbOtherQty',-1)" style="width:36px;height:40px;border-radius:8px 0 0 8px;border:1.5px solid var(--g200);border-right:none;background:var(--cream);color:var(--g700);font-size:18px;cursor:pointer;font-family:inherit;transition:all .15s;" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--g200)';this.style.color='var(--g700)'">−</button>
-                <input id="bbOtherQty" type="number" min="0" value="50" oninput="bbCalc()" style="width:52px;height:40px;border:1.5px solid var(--g200);border-left:none;border-right:none;text-align:center;font-size:16px;font-weight:800;color:var(--indigo);font-family:inherit;outline:none;background:var(--white);-moz-appearance:textfield;">
+                <input id="bbOtherQty" type="number" min="0" value="0" oninput="bbCalc()" style="width:52px;height:40px;border:1.5px solid var(--g200);border-left:none;border-right:none;text-align:center;font-size:16px;font-weight:800;color:var(--indigo);font-family:inherit;outline:none;background:var(--white);-moz-appearance:textfield;">
                 <button onclick="bbAdj('bbOtherQty',1)" style="width:36px;height:40px;border-radius:0 8px 8px 0;border:1.5px solid var(--g200);border-left:none;background:var(--cream);color:var(--g700);font-size:18px;cursor:pointer;font-family:inherit;transition:all .15s;" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--g200)';this.style.color='var(--g700)'">+</button>
               </div>
             </div>
           </div>
 
-        <div style="font-size:11px;color:var(--g400);font-style:italic;padding-top:8px;">Volume discounts at 10, 25, and 50+ agreements. $99/mo minimum. *Pricing reflects monthly per-agreement fees only — onboarding, implementation, and à la carte services are scoped separately.</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px;">
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:600;color:var(--g900);">Departed Agreements</div>
+              <div style="font-size:11px;color:var(--g400);margin-top:2px;">Terminated — billed monthly while in departure response</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+              <div style="display:flex;align-items:center;">
+                <button onclick="bbAdj('bbDepartedQty',-1)" style="width:36px;height:40px;border-radius:8px 0 0 8px;border:1.5px solid var(--g200);border-right:none;background:var(--cream);color:var(--g700);font-size:18px;cursor:pointer;font-family:inherit;transition:all .15s;" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--g200)';this.style.color='var(--g700)'">−</button>
+                <input id="bbDepartedQty" type="number" min="0" value="0" oninput="bbCalc()" style="width:52px;height:40px;border:1.5px solid var(--g200);border-left:none;border-right:none;text-align:center;font-size:16px;font-weight:800;color:var(--indigo);font-family:inherit;outline:none;background:var(--white);-moz-appearance:textfield;">
+                <button onclick="bbAdj('bbDepartedQty',1)" style="width:36px;height:40px;border-radius:0 8px 8px 0;border:1.5px solid var(--g200);border-left:none;background:var(--cream);color:var(--g700);font-size:18px;cursor:pointer;font-family:inherit;transition:all .15s;" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--g200)';this.style.color='var(--g700)'">+</button>
+              </div>
+            </div>
+          </div>
+
+        <div style="font-size:11px;color:var(--g400);font-style:italic;padding-top:8px;">$150/mo minimum. $500 setup fee. Departed agreements billed monthly while in that status. *Pricing reflects monthly per-agreement fees only — onboarding and à la carte services are scoped separately.</div>
         </div>
 
       </div>
@@ -1274,7 +1323,7 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
       <!-- RIGHT: Output -->
       <div style="background:linear-gradient(160deg,var(--navy),var(--navy-mid));border-radius:20px;padding:28px;position:sticky;top:84px;color:white;">
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#818cf8;margin-bottom:4px;">Your Estimate</div>
-        <div id="bbPkgLabel" style="font-size:15px;font-weight:700;color:white;margin-bottom:24px;">Manage</div>
+        <div id="bbPkgLabel" style="font-size:15px;font-weight:700;color:white;margin-bottom:24px;">BonusBridge</div>
 
         <div id="bbNoteRow" style="display:none;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);">
           <div>
@@ -1286,10 +1335,18 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
 
         <div id="bbOtherRow" style="display:none;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);">
           <div>
-            <div style="font-size:12px;color:rgba(255,255,255,.5);">Starting &amp; retention</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.5);">Retention &amp; performance</div>
             <div id="bbOtherDetail" style="font-size:10px;color:rgba(255,255,255,.3);margin-top:1px;"></div>
           </div>
           <span id="bbOtherOut" style="font-size:13px;font-weight:700;color:white;margin-left:12px;"></span>
+        </div>
+
+        <div id="bbDepartedRow" style="display:none;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);">
+          <div>
+            <div style="font-size:12px;color:rgba(255,255,255,.5);">Departed agreements</div>
+            <div id="bbDepartedDetail" style="font-size:10px;color:rgba(255,255,255,.3);margin-top:1px;"></div>
+          </div>
+          <span id="bbDepartedOut" style="font-size:13px;font-weight:700;color:white;margin-left:12px;"></span>
         </div>
 
         <div id="bbDiscRow" style="display:none;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);">
@@ -1516,41 +1573,16 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
   </div>
 </section>
 
-<!-- ── TRUST ── -->
-<section class="trust-section">
-  <div class="section-inner">
-    <div class="s-eyebrow fade-up" style="color:#818cf8">Why BonusBridge</div>
-    <h2 class="s-title fade-up d1" style="color:white;margin-bottom:0">The stakes are high.<br><em style="color:#a5b4fc">The administration should match.</em></h2>
-    <div class="trust-grid fade-up d2">
-      <div class="trust-card">
-        <span class="trust-quote-mark">"</span>
-        <p class="trust-quote">We were managing $4M in active signing bonuses across a shared spreadsheet. When two physicians left in the same quarter, we had no documented process. BonusBridge would have saved us the exposure — and the headache.</p>
-        <div class="trust-author"><div class="trust-av">DH</div><div><div class="trust-name">Director of Human Resources</div><div class="trust-role">Regional Health System</div></div></div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-quote-mark">"</span>
-        <p class="trust-quote">The imputed income piece alone justifies it. Every pay period, payroll was calculating the taxable amount by hand for every active note. One error creates a W-2 problem. Now it's just there — accurate, exported, done.</p>
-        <div class="trust-author"><div class="trust-av">MK</div><div><div class="trust-name">VP of Finance</div><div class="trust-role">Private Equity-Backed Firm</div></div></div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-quote-mark">"</span>
-        <p class="trust-quote">We had a portfolio of retention bonuses that had never been formally documented. BonusBridge's audit service reconstructed every agreement and got us current in weeks. We had no idea what we were sitting on.</p>
-        <div class="trust-author"><div class="trust-av">RC</div><div><div class="trust-name">Chief People Officer</div><div class="trust-role">Multi-Site Healthcare Organization</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── CTA ── -->
 <section class="cta-section">
   <div class="cta-orb-1"></div>
   <div class="cta-orb-2"></div>
   <div class="cta-inner">
     <h2 class="cta-title fade-up">Ready to build the infrastructure<br>your bonus programs <em>deserve?</em></h2>
-    <p class="cta-sub fade-up d1">Start with the package that fits today. Add services as you need them. BonusBridge scales with your program.</p>
+    <p class="cta-sub fade-up d1">Start with the product that fits today. BonusBridge is operational — most organizations are live within a single business day using the CSV import.</p>
     <div class="cta-btns fade-up d2">
       <button class="btn-white" onclick="openModal()">Get Started →</button>
-      <a href="#packages" class="btn-outline-white">View Packages</a>
+      <a href="#packages" class="btn-outline-white">View Products</a>
     </div>
     <div style="margin-top:24px;font-size:14px;color:rgba(165,180,252,.6);position:relative;z-index:1;">Or reach out directly — <a href="/cdn-cgi/l/email-protection#dda9b5b8bfb2b3a8aebfafb4b9bab8a9b8bcb09dbab0bcb4b1f3beb2b0" style="color:#a5b4fc;font-weight:600;text-decoration:underline;text-underline-offset:3px;"><span class="__cf_email__" data-cfemail="0e7a666b6c61607b7d6c7c676a696b7a6b6f634e69636f6762206d6163">[email&#160;protected]</span></a></div>
   </div>
@@ -1598,7 +1630,7 @@ footer{background:var(--g900);padding:52px 40px;border-top:1px solid rgba(255,25
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 BonusBridge · thebonusbridge.com</span>
+    <span>© 2026 BonusBridge · thebonusbridge.com</span>
     <span>Built for the teams who take bonus administration seriously.</span>
   </div>
 </footer>
@@ -1778,11 +1810,10 @@ document.addEventListener('keydown', function(e) {
 
 /* ── PRICING CALCULATOR ── */
 var BB_PKGS = {
-  manage:  { label: 'Manage',  note: 18, other: 9  },
-  notify:  { label: 'Notify',  note: 30, other: 16 },
-  execute: { label: 'Execute', note: 45, other: 24 }
+  standard: { label: 'BonusBridge',          note: 12, other: 6,  departed: 3  },
+  docusign: { label: 'BonusBridge + DocuSign', note: 17, other: 11, departed: 8 }
 };
-var bbPkg = 'manage';
+var bbPkg = 'standard';
 
 function bbSelectPkg(el) {
   document.querySelectorAll('.bb-pkg').forEach(function(e) {
@@ -1808,24 +1839,21 @@ function bbAdj(id, delta) {
 function bbFmt(n) { return '$' + Math.round(n).toLocaleString(); }
 
 function bbCalc() {
-  var pkg      = BB_PKGS[bbPkg];
-  var noteQty  = Math.max(0, parseInt(document.getElementById('bbNoteQty').value)  || 0);
-  var otherQty = Math.max(0, parseInt(document.getElementById('bbOtherQty').value) || 0);
-  var total    = noteQty + otherQty;
+  var pkg          = BB_PKGS[bbPkg];
+  var noteQty      = Math.max(0, parseInt(document.getElementById('bbNoteQty').value)      || 0);
+  var otherQty     = Math.max(0, parseInt(document.getElementById('bbOtherQty').value)     || 0);
+  var departedQty  = Math.max(0, parseInt(document.getElementById('bbDepartedQty').value)  || 0);
+  var total        = noteQty + otherQty + departedQty;
 
-  var noteSub  = pkg.note  * noteQty;
-  var otherSub = pkg.other * otherQty;
-  var subtotal = noteSub + otherSub;
+  var noteSub      = pkg.note     * noteQty;
+  var otherSub     = pkg.other    * otherQty;
+  var departedSub  = pkg.departed * departedQty;
+  var subtotal     = noteSub + otherSub + departedSub;
 
-  var disc = 0, discLabel = '';
-  if (total >= 50)      { disc = 0.20; discLabel = '20% volume discount'; }
-  else if (total >= 25) { disc = 0.15; discLabel = '15% volume discount'; }
-  else if (total >= 10) { disc = 0.10; discLabel = '10% volume discount'; }
-
-  var monthly = subtotal > 0 ? Math.max(subtotal * (1 - disc), 99) : 0;
+  var monthly = subtotal > 0 ? Math.max(subtotal, 150) : 0;
   var annual  = monthly * 12;
 
-  document.getElementById('bbPkgLabel').textContent  = 'BonusBridge ' + pkg.label;
+  document.getElementById('bbPkgLabel').textContent  = pkg.label;
   document.getElementById('bbMonthly').textContent   = monthly > 0 ? bbFmt(monthly) : '—';
   document.getElementById('bbAnnualOut').textContent = monthly > 0 ? bbFmt(annual) + '/year' : '';
 
@@ -1843,42 +1871,35 @@ function bbCalc() {
     document.getElementById('bbOtherDetail').textContent = otherQty + ' × ' + bbFmt(pkg.other) + '/mo';
   } else { otherRow.style.display = 'none'; }
 
-  var discRow = document.getElementById('bbDiscRow');
-  if (disc > 0 && subtotal > 0) {
-    discRow.style.display = 'flex';
-    document.getElementById('bbDiscLabel').textContent = discLabel;
-    document.getElementById('bbDiscOut').textContent   = '−' + bbFmt(subtotal * disc) + '/mo';
-  } else { discRow.style.display = 'none'; }
+  var departedRow = document.getElementById('bbDepartedRow');
+  if (departedQty > 0) {
+    departedRow.style.display = 'flex';
+    document.getElementById('bbDepartedOut').textContent    = bbFmt(departedSub) + '/mo';
+    document.getElementById('bbDepartedDetail').textContent = departedQty + ' × ' + bbFmt(pkg.departed) + '/mo';
+  } else { departedRow.style.display = 'none'; }
+
+  // Hide discount row — no volume discounts in new model
+  document.getElementById('bbDiscRow').style.display = 'none';
 
   // ROI — uses user-input averages
   var noteAvg  = Math.max(0, parseFloat(document.getElementById('bbNoteAvg').value)  || 0);
   var otherAvg = Math.max(0, parseFloat(document.getElementById('bbOtherAvg').value) || 0);
+  var activeTotal = noteQty + otherQty;
   var portfolio = (noteAvg * noteQty) + (otherAvg * otherQty);
   var roiEl = document.getElementById('bbRoi');
 
-  if (portfolio > 0 && annual > 0 && total > 0) {
+  if (portfolio > 0 && annual > 0 && activeTotal > 0) {
     roiEl.style.display = 'block';
-
-    // Avg value across all agreements
-    var blendedAvg = portfolio / total;
-
-    // How many agreements would need to be fully recovered to cover annual cost
+    var blendedAvg = portfolio / activeTotal;
     var breakEvenAgreements = annual / blendedAvg;
-
-    // Express that as % of total volume
-    var breakEvenPct = (breakEvenAgreements / total * 100).toFixed(2);
-
-    // Round break-even to one decimal for readability
-    var breakEvenDisplay = breakEvenAgreements < 1
-      ? 'less than 1'
-      : breakEvenAgreements.toFixed(1);
-
+    var breakEvenPct = (breakEvenAgreements / activeTotal * 100).toFixed(2);
+    var breakEvenDisplay = breakEvenAgreements < 1 ? 'less than 1' : breakEvenAgreements.toFixed(1);
     document.getElementById('bbRoiText').innerHTML =
       'BonusBridge costs <strong style="color:white;">' + bbFmt(annual) + '/year</strong> to protect ' +
       '<strong style="color:white;">' + bbFmt(portfolio) + '</strong> in outstanding agreements. ' +
-      'That\'s the equivalent of recovering just <strong style="color:#6ee7b7;">' + breakEvenDisplay + '</strong> out of your ' +
-      '<strong style="color:white;">' + total + '</strong> agreements — ' +
-      '<strong style="color:#a5b4fc;">' + breakEvenPct + '%</strong> of your outstanding volume.';
+      'That\'s the equivalent of recovering just <strong style="color:#6ee7b7;">' + breakEvenDisplay + '</strong> of your ' +
+      '<strong style="color:white;">' + activeTotal + '</strong> active agreements — ' +
+      '<strong style="color:#a5b4fc;">' + breakEvenPct + '%</strong> of your portfolio.';
   } else {
     roiEl.style.display = 'none';
   }
